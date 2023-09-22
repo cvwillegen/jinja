@@ -543,6 +543,10 @@ class Parser:
             right = self.parse_and()
             left = nodes.Or(left, right, lineno=lineno)
             lineno = self.stream.current.lineno
+        while self.stream.skip_if("name:xor"):
+            right = self.parse_and()
+            left = nodes.Xor(left, right, lineno=lineno)
+            lineno = self.stream.current.lineno
         return left
 
     def parse_and(self) -> nodes.Expr:

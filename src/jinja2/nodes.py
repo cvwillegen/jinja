@@ -1005,6 +1005,15 @@ class Or(BinExpr):
         eval_ctx = get_eval_context(self, eval_ctx)
         return self.left.as_const(eval_ctx) or self.right.as_const(eval_ctx)
 
+class Xor(BinExpr):
+    """XOR."""
+
+    operator = "xor"
+
+    def as_const(self, eval_ctx: t.Optional[EvalContext] = None) -> t.Any:
+        eval_ctx = get_eval_context(self, eval_ctx)
+        return self.left.as_const(eval_ctx) ^ self.right.as_const(eval_ctx)
+
 
 class Not(UnaryExpr):
     """Negate the expression."""

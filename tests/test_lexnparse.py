@@ -427,9 +427,9 @@ class TestSyntax:
 
     def test_bool(self, env):
         tmpl = env.from_string(
-            "{{ true and false }}|{{ false or true }}|{{ not false }}"
+            "{{ true and false }}|{{ false or true }}|{{ not false }}|{{ true xor true }}|{{true xor true xor true }}"
         )
-        assert tmpl.render() == "False|True|True"
+        assert tmpl.render() == "False|True|True|False|True"
 
     def test_grouping(self, env):
         tmpl = env.from_string(

@@ -1676,6 +1676,7 @@ class CodeGenerator(NodeVisitor):
     visit_Mod = _make_binop("%")
     visit_And = _make_binop("and")
     visit_Or = _make_binop("or")
+    visit_Xor = _make_binop("xor")
     visit_Pos = _make_unop("+")
     visit_Neg = _make_unop("-")
     visit_Not = _make_unop("not ")
